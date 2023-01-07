@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>test_comment</title>
+      <link href="/2023/01/07/test-comment/"/>
+      <url>/2023/01/07/test-comment/</url>
+      
+        <content type="html"><![CDATA[<script src="https://utteranc.es/client.js"        repo="B1fang/B1fang.github.io"        issue-term="pathname"        label="Comment"        theme="github-light"        crossorigin="anonymous"        async></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hello</title>
       <link href="/2023/01/07/hello/"/>
       <url>/2023/01/07/hello/</url>
