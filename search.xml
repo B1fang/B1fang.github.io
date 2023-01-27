@@ -2,6 +2,35 @@
 <search> 
   
   
+    
+    <entry>
+      <title>&lt;数据分析&gt; NumPy初见</title>
+      <link href="/2023/01/28/NumPy%E5%88%9D%E8%A7%81/"/>
+      <url>/2023/01/28/NumPy%E5%88%9D%E8%A7%81/</url>
+      
+        <content type="html"><![CDATA[<h1 id="NumPy-学习笔记"><a href="#NumPy-学习笔记" class="headerlink" title="NumPy 学习笔记"></a>NumPy 学习笔记</h1><p>from 《利用Python进行数据分析》</p><hr><p>numpy导包语句:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure><h2 id="ndarray"><a href="#ndarray" class="headerlink" title="ndarray"></a>ndarray</h2><p>两个重要的attribute:<br><code>dtype</code>:表示数组容纳的数据类型；<br><code>shape</code>:元组，指示着数组的形状</p><h3 id="ndarray的生成"><a href="#ndarray的生成" class="headerlink" title="ndarray的生成"></a>ndarray的生成</h3><p>生成方法：</p><p>总的来说可以按照接受参数分为四类：<br>构造型：<br><code>np.array()</code>：接受参数为元组、列表或者其他参数；<br>“按需供给型”：<br>接受参数为<code>shape</code>和<code>dtype</code>，具体代表有：<br><code>np.ones()</code>、<code>np.zeros()</code>;<br>“like”型:<br>接受一个ndarray实例并按要求生成一个形似其的ndarray实例，具体代表有：<br><code>np.oneslike()</code>、<code>np.zeros_like</code>；<br>特征矩阵型：<br>生成指定大小（N x N）的特征矩阵。<br><code>np.eye()</code>、<code>np.inentity()</code>.</p><h3 id="ndarray数据类型"><a href="#ndarray数据类型" class="headerlink" title="ndarray数据类型"></a>ndarray数据类型</h3><p>重要方法：<code>np.astype()</code>接受参数为一个dtype，功能为强制转换数组数据类型。</p><h3 id="NumPy数组算数"><a href="#NumPy数组算数" class="headerlink" title="NumPy数组算数"></a>NumPy数组算数</h3><p>NumPy所支持的数组算数是定义在两个<strong>尺寸相同</strong>d的ndarray之间的。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设arr, arr1为两个尺寸相同的ndarray的引用,NumPy支持以下写法：</span></span><br><span class="line">a = arr*arr</span><br><span class="line">b = arr - arr</span><br><span class="line">c = <span class="number">1</span> / arr</span><br><span class="line">d = arr ** <span class="number">0.5</span> // 次幂</span><br><span class="line">e = arr &gt; arr1 // e为一个布尔值数组</span><br></pre></td></tr></table></figure><h3 id="基础索引与切片"><a href="#基础索引与切片" class="headerlink" title="基础索引与切片"></a>基础索引与切片</h3><p>一个值得注意的事实是，ndarray的切片是这个数组的一个视图，也就是说，当对切片进行操作时，这个操作会映射到原数组上；</p><p>如果希望得到切片的一个副本，那么需要调用：<code>np.copy()</code>方法，这个方法返回一个ndarray的副本。</p><p>具体索引/切片形式和python内建数据结构相似，形如<code>x:y</code>这样的形式包含在中括号中。</p><p>对于多维数组（以三维数组arr3d为例），其索引形式为：arr3d[甲,乙,丙]，从左至右依次选定中括号层次由外向内的系列对象。</p><h3 id="布尔索引"><a href="#布尔索引" class="headerlink" title="布尔索引"></a>布尔索引</h3><p>fact1 :</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = np.array([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;b&#x27;</span>])</span><br><span class="line"><span class="comment"># 若运行：</span></span><br><span class="line">boolean = (names == <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"><span class="comment"># 会返回: array([False, True, True], dtype=bool)</span></span><br></pre></td></tr></table></figure><p>fact2 :<br>索引数组可以传入布尔数组作为某个轴的索引参数。</p><h3 id="魔术索引-magic-index"><a href="#魔术索引-magic-index" class="headerlink" title="魔术索引(magic index)"></a>魔术索引(magic index)</h3><h3 id="数组转置和转轴"><a href="#数组转置和转轴" class="headerlink" title="数组转置和转轴"></a>数组转置和转轴</h3><h2 id="通用函数"><a href="#通用函数" class="headerlink" title="通用函数"></a>通用函数</h2><p>这个查书就好</p><h2 id="使用数组进行面向数组编程"><a href="#使用数组进行面向数组编程" class="headerlink" title="使用数组进行面向数组编程"></a>使用数组进行面向数组编程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">points = np.arange(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">0.01</span>)</span><br><span class="line">xs, ys = np.meshgrid(points, points) <span class="comment"># meshgrid方法需要后期留意一下</span></span><br><span class="line">z = np.sqrt(xs**<span class="number">2</span> + ys**<span class="number">2</span>) </span><br></pre></td></tr></table></figure><p><code>np.where(cond, xarr, yarr)</code>方法可以被看做python三元表达式的向量化版本，其功能为：若cond中数组相应位置元素满足cond表达式，则用xarr对应元素替换，否则用yarr对应元素替换。</p><p>后续不再摘录书中方法，有必要去查numpy官方API文档即可。</p><script src="https://utteranc.es/client.js"        repo="B1fang/B1fang.github.io"        issue-term="pathname"        label="Comment"        theme="github-light"        crossorigin="anonymous"        async></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据分析 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Numpy </tag>
+            
+            <tag> 数据分析 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
