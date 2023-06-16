@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> bash </tag>
-            
             <tag> Operating System </tag>
             
             <tag> shell </tag>
+            
+            <tag> bash </tag>
             
         </tags>
       
@@ -207,13 +207,13 @@
       
         <tags>
             
-            <tag> makefile </tag>
+            <tag> Operating System </tag>
             
             <tag> bash </tag>
             
-            <tag> git </tag>
+            <tag> makefile </tag>
             
-            <tag> Operating System </tag>
+            <tag> git </tag>
             
         </tags>
       
